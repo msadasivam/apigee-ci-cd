@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Static Code Analysis, Unit Test and Coverage') {
             steps {
-              sh "mvn -ntp test -P${env.APIGEE_PROFILE} -Ddeployment.suffix=${env.APIGEE_PREFIX} -Dcommit=${env.GIT_COMMIT} -Dbranch=${env.GIT_BRANCH} -Duser.name=jenkins"
+              sh "mvn -ntp test -P${env.APIGEE_PROFILE} -Ddeployment.suffix=${env.APIGEE_PREFIX} -Dcommit=${env.GIT_COMMIT} -Dbranch=${env.GIT_BRANCH} -Dorg=${env.APIGEE_ORG} -Duser.name=jenkins"
             }
         }
         stage('Configurations') {
